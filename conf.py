@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Propriedade e permissões no Linux'
+project = 'Ubuntu FR2PT'
 copyright = '2020, Jurandy Soars'
 author = 'Jurandy Soares'
 

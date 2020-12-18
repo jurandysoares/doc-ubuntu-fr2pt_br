@@ -1,6 +1,6 @@
 
-Propriedade e permissões no Linux
-=================================
+Documentação do Ubuntu-FR para Português
+========================================
 
 .. toctree::
    :maxdepth: 1
