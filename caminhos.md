@@ -54,7 +54,7 @@ Em particular, existem muitos recursos ocultos em seu diretório pessoal. A idei
 
 ## Inodes
 
-Para ir mais longe, você deve saber que cada caminho para um diretório ou arquivo é na verdade um link físico e que cada um desses links aponta para um inode que descreve o próprio recurso no sistema de arquivos. O *inode* descreve, entre outras coisas, {ref}`as permissões <as-permissoes>` , {ref}`o proprietário <os-proprietarios>` e as datas de criação e modificação do recurso.
+Para ir mais longe, você deve saber que cada caminho para um diretório ou arquivo é na verdade um link físico e que cada um desses links aponta para um *inode* que descreve o próprio recurso no sistema de arquivos. O *inode* descreve, entre outras coisas, {ref}`as permissões <as-permissoes>` , {ref}`o proprietário <os-proprietarios>` e as datas de criação e modificação do recurso.
 
 Veja [esta página da Wikipedia](https://pt.wikipedia.org/wiki/N%C3%B3-i) para mais detalhes.
 
