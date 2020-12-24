@@ -30,7 +30,7 @@ Este tipo de caminho também pode ser usado para indicar onde os recursos estão
 
 ## Links
 
-Podemos usar links físicos ou simbólicos para criar, por exemplo. atalhos entre caminhos diferentes.
+Podemos usar links físicos ou simbólicos para criar, por exemplo, atalhos entre caminhos diferentes.
 
 Em particular, `.` é usado como um nome de diretório indica o diretório atual e `..` indica o diretório pai (esses são links físicos).
 
