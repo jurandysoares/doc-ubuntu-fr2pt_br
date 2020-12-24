@@ -16,7 +16,7 @@ Existem dois tipos de caminho: absoluto e relativo .
 
 ## Caminho absoluto
 
-Um caminho absoluto é baseado na raiz da árvore e começa com `/`, por exemplo: /home/usuario/<pasta>/<arquivo>. Ele permanece válido em qualquer contexto (desde que ainda esteja no mesmo sistema da mesma máquina).
+Um caminho absoluto é baseado na raiz da árvore e começa com `/`, por exemplo: `/home/usuario/<pasta>/<arquivo>`. Ele permanece válido em qualquer contexto (desde que ainda esteja no mesmo sistema da mesma máquina).
 
 ```{tip}
 `/` logo no início de um caminho é, portanto, aproximadamente o equivalente ao `C:\` no Windows 
