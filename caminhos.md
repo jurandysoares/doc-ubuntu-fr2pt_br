@@ -52,17 +52,15 @@ Normalmente, eles também podem ser exibidos com um gerenciador de arquivos grá
 Em particular, existem muitos recursos ocultos em seu diretório pessoal. A ideia é ocultar aqui os diretórios e arquivos utilizados pelo sistema, mas específicos do usuário, para dar melhor visibilidade aos documentos ou conteúdos de mídia do usuário.
 ```
 
-Em particular, existem muitos recursos ocultos em seu diretório pessoal. A ideia é ocultar aqui os diretórios e arquivos utilizados pelo sistema, mas específicos do usuário, para dar melhor visibilidade aos documento ou conteúdos de mídia do usuário.
-```
-
 ## Inodes
 
 Para ir mais longe, você deve saber que cada caminho para um diretório ou arquivo é na verdade um link físico e que cada um desses links aponta para um inode que descreve o próprio recurso no sistema de arquivos. O inode descreve, entre outras coisas, {ref}`as permissões <as-permissoes>` , {ref}`o proprietário <os-proprietarios>` e as datas de criação e modificação do recurso.
 
 Veja [esta página da Wikipedia](https://pt.wikipedia.org/wiki/N%C3%B3-i) para mais detalhes.
 
-Veja também
-Árvore de diretório do Ubuntu
-Console: linha de comando
-Sistemas de arquivos em Linux
-Links físicos e simbólicos
+## Veja também
+
+- Árvore de diretório do Ubuntu
+- Console: linha de comando
+- Sistemas de arquivos em Linux
+- Links físicos e simbólicos
