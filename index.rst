@@ -1,6 +1,6 @@
 
-Documentação do Ubuntu-FR para Português
-========================================
+Ubuntu-FR em Português
+======================
 
 .. toctree::
    :maxdepth: 1
