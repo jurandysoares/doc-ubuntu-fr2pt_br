@@ -167,7 +167,7 @@ Imagine o mesmo arquivo `foo.txt` pertencente ao *usuário1* e pertencente ao gr
 
 ####  chmod, para mudar os direitos
 
-O comando `chmod`(<b>ch</b>ange <b>mod</b>e, permissões mudança) pode alterar as permissões em um arquivo. Ele pode ser usado de duas maneiras: ou especificando as permissões octal, usando os números; adicionando ou removendo permissões de uma ou mais categorias de usuário usando os símbolos `r`, `w` e `x`, que apresentamos acima. Preferimos apresentar primeiro esta segunda forma ("adicionar ou remover permissões usando símbolos"), pois provavelmente é mais intuitivo para iniciantes. Esteja ciente de que os dois métodos são equivalentes, ou seja, ambos afetam as permissões da mesma forma.
+O comando `chmod`(<b>ch</b>ange <b>mod</b>e, mudar permissões) pode alterar as permissões em um arquivo. Ele pode ser usado de duas maneiras: ou especificando as permissões octal, usando os números; adicionando ou removendo permissões de uma ou mais categorias de usuário usando os símbolos `r`, `w` e `x`, que apresentamos acima. Preferimos apresentar primeiro esta segunda forma ("adicionar ou remover permissões usando símbolos"), pois provavelmente é mais intuitivo para iniciantes. Esteja ciente de que os dois métodos são equivalentes, ou seja, ambos afetam as permissões da mesma forma.
 
 ##### Gerenciando cada direito separadamente
 
@@ -232,14 +232,146 @@ Por exemplo,
 
 Isso permite que você faça todas as combinações:
 
-| Valor | Permissões | Significado                |
-| ----- | ---------- | -------------------------- |
-| 0     | ---        | (sem direitos)             |
-| 1     | --x        | (execução)                 |
-| 2     | -w-        | (escrevendo)               |
-| 3     | -wx        | (escrever e executar)      |
-| 4     | r--        | (somente leitura)          |
-| 5     | r-x        | (ler e executar)           |
-| 6     | rw-        | (ler e escrever)           |
-| 7     | rwx        | (ler, escrever e executar) |
+| Valor | Permissões | Significado                   |
+| ----- | ---------- | ----------------------------- |
+| 0     | ---        | (sem direitos)                |
+| 1     | --x        | (execução)                    |
+| 2     | -w-        | (escrita)                     |
+| 3     | -wx        | (escrita e execução)          |
+| 4     | r--        | (somente leitura)             |
+| 5     | r-x        | (leitura e execução)          |
+| 6     | rw-        | (leitura e escrita)           |
+| 7     | rwx        | (leitura, escrita e execução) |
+
+Vamos voltar ao diretório `Documents`. Suas permissões são:
+
+    drwxr-x ---
+
+Em octal, teremos **750**:
+
+| Perm. p/ (u) | Perm. p/ (g) | Perm. p/ (o) |
+| :----------: | :----------: | :----------: |
+|     rwx      |      rx      |     ---      |
+| (4 + 2 + 1)  | (4 + 0 + 1)  | (0 + 0 + 0)  |
+|      7       |      5       |      0       |
+
+Para colocar essas permissões no diretório, digitaríamos o comando:
+
+    chmod 750 Documents
+
+#### Recursivamente
+
+Para cada um desses comandos, podemos executá-los recursivamente em um diretório. Em outras palavras, a ação será executada no diretório designado e em todos os arquivos ou diretórios que ele contém. Isso é feito adicionando a opção `-R`.
+
+```{warning} 
+Um uso indevido do `chmod -R` pode tornar seu sistema inutilizável. Evite executar o comando na raiz do sistema de arquivos (Ex.: `chmod -R [...] /`)
+```
+
+Por exemplo:
+
+    chmod -R 750 meuDiretório
+
+dará todos os direitos ao proprietário, direitos de leitura e execução para o grupo e nenhum direito para terceiros ...
+
+##### Exemplo de aplicação que trata de maneira diferente diretórios e arquivos
+
+Na verdade, se os diretórios devem ter a permissão `x` para poderem ser abertos, a permissão `x` é inútil para os arquivos não executáveis ​​e pode ser irritante para os arquivos de texto (txt, html ...) porque neste caso quando os abrimos cada vez receberemos uma mensagem perguntando se queremos abri-los ou lançá-los (como executáveis). Resumindo, o `x` certo deve ser reservado apenas para arquivos que são realmente executáveis.
+
+**Aplicação 1:**
+
+Seja um diretório *meudir*, contendo subdiretórios e arquivos. As permissões são `d rwx --- ---- (700)` para diretórios e `- rw --- --- (600)` para arquivos.
+
+Queremos adicionar recursivamente os mesmos direitos  para o grupo (resp. `rwx` para os diretórios  e `rw` para os arquivos). Em outras palavras, queremos terminar com a seguinte situação: 
+
+- `drwxrwx--- (770)` para diretórios e 
+- `-rw-rw---- (660)` para arquivos.
+
+Se executarmos `chmod -R 770 meudir`: os arquivos terão direitos de execução → ruim.
+
+Se executarmos `chmod -R 660 meudir`: os diretórios não terão mais direitos de execução → catastrófico.
+
+Se executarmos `chmod -R g+rwx meudir`: os arquivos terão direitos de execução → ruim.
+
+Se executarmos `chmod -R g+rwX meudir`: apenas os diretórios (e os arquivos já executáveis) terão os direitos de execução → bom.
+
+**Aplicação 2:**
+
+Vamos imaginar que lançamos anteriormente o comando `chmod -R 770 meudir`. A situação é a seguinte: os direitos são `drwxrwx--- (770)` para diretórios e `-rwxrw---- (770)` para arquivos.
+
+Queremos remover os direitos de execução apenas nos arquivos. Em outras palavras, queremos terminar com a seguinte situação: `drwxrwx--- (770)` para diretórios e `-rw-rw---- (660)` para arquivos.
+
+Como *chmod* se aplica a arquivos e diretórios, estaremos fazendo malabarismos com `x` e `X`. Temos que remover `x` e, em seguida, adicionar `X`.
+
+Se executarmos `chmod -R u-x+X,g-x+X meudir`, ele não terá efeito porque `X` diz respeito a ambos os diretórios E arquivos que têm um `x` em algum lugar. Portanto, se `u-x` remove o primeiro `x` (o que dá `-rw-rwx---`), a sequência `+X` colocará imediatamente um x de volta porque permanece um `x` (o do grupo!).
+
+Portanto, devemos primeiro remover todos os `x`: `u-x,gx` antes de colocá-los de volta (será feito apenas para os diretórios desta vez), o que finalmente dá:
+
+    chmod -R u-x,g-x,u+X,g+X meudir
+
+```{tip}
+Deve-se notar que apenas o dono do arquivo, bem como o superusuário, têm a possibilidade de modificar as permissões em um arquivo. (Um membro do grupo proprietário não pode alterar as permissões em um arquivo.) Quando o usuário atual não é o proprietário atual do arquivo, será necessário preceder o comando com sudo, uma vez que terá que ser feito com o direitos de administração.
+```
+
+```{tip}
+Observe também que para alterar os proprietários e as permissões em um arquivo que pertence a ele, o usuário deve ter absolutamente permissão de gravação nesse arquivo. Se ele tiver apenas permissão de leitura, não poderá alterar nenhum direito de acesso a este arquivo.
+```
+
+```{admonition} Duas outras opções muito práticas:
+- Para exibir uma mensagem se e somente se as permissões foram alteradas:
+    - `chmod -c <opção> <arquivo>`
+
+- Para trabalhar recursivamente em todos os arquivos em um diretório e seus subdiretórios:
+    - `chmod -R diretório`
+``` 
+
+## Direitos especiais
+
+Às vezes, as permissões são especificadas com 4 dígitos, como `file_mode=0777`. Este primeiro número adicionado na frente pode ser usado para definir {term}`UID` ou {term}`GID` em tempo de execução ou o bit de grude (*stick bit*).
+
+Digite na linha de comando:
+
+    ls -l $(which passwd)
+    ls -l $(which sudo)
+    ls -l $(which ssh-agent)
+    ls -ld /tmp
+
+Você deve ver na lista de nomes de arquivo em um fundo vermelho ou amarelo e direitos do tipo abaixo onde `s` substitui o `x`.
+
+![Listagem de arquivos com setuid, setgid e sticky bit](imagens/ls-setuid-setgid-sticky.png)
+
+Segue listagem dos comandos anteriores com sua respectiva saída:
+
+- `ls -l $(which passwd)`
+
+    -rwsr-xr-x 1 root root 68208 mai 28  2020 /usr/bin/passwd
+
+- `ls -l $(which sudo)`
+  
+    -rwsr-xr-x 1 root root 166056 jul 14 21:17 /usr/bin/sudo
+
+- `ls -l $(which ssh-agent)`
+
+    -rwxr-sr-x 1 root ssh 350504 mai 29  2020 /usr/bin/ssh-agent
+
+- `ls -ld /tmp`
+
+    drwxrwxrwt 28 root root 20480 dez 25 06:03 /tmp
+
+Podemos interpretar a saída conforme a tabela abaixo:
+
+| Permissões | Links | Usuário | Grupo | Tamanho | Últ. modif.  | Nome               |
+| ---------- | ----- | ------- | ----- | ------- | ------------ | ------------------ |
+| -rwsr-xr-x | 1     | root    | root  | 68208   | mai 28 2020  | /usr/bin/passwd    |
+| -rwsr-xr-x | 1     | root    | root  | 166056  | jul 14 21:17 | /usr/bin/sudo      |
+| -rwxr-sr-x | 1     | root    | ssh   | 350504  | mai 29 2020  | /usr/bin/ssh-agent |
+| drwxrwxrwt | 29    | root    | root  | 20480   | dez 25 03:18 | /tmp               |
+
+
+O bit *Set-User-ID* permite que um usuário execute o programa com direitos de proprietário, então `sudo` nos permite executar comandos como "root". O bit *Set-Group-ID* faz o mesmo que o Set-User-ID, mas em relação ao grupo.
+
+A restrição de exclusão ou *Sticky bit* permite, por sua vez, restringir a exclusão de um arquivo ou diretório ao seu único proprietário. Este é o caso do diretório `/tmp`. O `t` em vez dos `x` para outros usuários nos informa que este diretório somente pode ser excluído pelo usuário *root*. Como para as outras permissões, você pode acumular as ativações, adicionando o código para cada um, assim, para ativar o *sticky bit* e o *GroupID* em seu script `renomeia-minhas-fotos.sh`, você executaria:
+
+    chmod 3777 renomeia-minhas-fotos.sh
+
+
 
