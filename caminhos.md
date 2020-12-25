@@ -48,7 +48,7 @@ Com o comando `ls`, você deve adicionar a opção *a* (para <i><b>a</b>ll</i>, 
 
 Normalmente, eles também podem ser exibidos com um gerenciador de arquivos gráfico (por padrão no Ubuntu: GNOME Arquivos -- anteriormente Nautilus) com o atalho {kbd}`Ctrl+h` (para <i><b>h</b>idden</i>, "escondido" em Inglês).
 
-```{admonition}
+```{note}
 Em particular, existem muitos recursos ocultos em seu diretório pessoal. A ideia é ocultar aqui os diretórios e arquivos utilizados pelo sistema, mas específicos do usuário, para dar melhor visibilidade aos documentos ou conteúdos de mídia do usuário.
 ```
 

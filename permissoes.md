@@ -10,7 +10,7 @@
 {ref}`direitos`
 ```
 
-Os sistemas operacionais inspirados no Unix (dos quais o Linux faz parte) têm a capacidade de definir de forma detalhada a gestão dos direitos de acesso aos vários ficheiros do seu {term}`SO`.
+Os sistemas operacionais inspirados no Unix (dos quais o Linux faz parte) têm a capacidade de definir de forma detalhada a gestão dos direitos de acesso aos vários arquivos do seu {term}`SO`.
 
 Os direitos de acesso definidos em arquivos e diretórios não são imutáveis: eles podem ser alterados, a fim de acomodar novas necessidades que surgem com o tempo de uso de seu sistema Ubuntu. Este artigo explica as diferentes manipulações que podem ser aplicadas a arquivos e diretórios para alterar seus proprietários e permissões.
 

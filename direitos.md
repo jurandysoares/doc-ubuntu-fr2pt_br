@@ -12,7 +12,7 @@ Os direitos de acesso definem a propriedade de um arquivo ou diretório a um usu
 
 Este artigo é um documento explicativo sobre direitos de acesso. As seções [Os proprietários](os-proprietarios) e [As permissões](as-permissoes) apresentam de forma geral quais são esses atributos que você terá que encarar em sua vida como administrador de um sistema Linux.
 
-A manipulação dos direitos de acesso de arquivos e pastas é discutida no artigo {ref} `Permissões <permissoes>`.
+A manipulação dos direitos de acesso de arquivos e pastas é discutida no artigo {ref}`Permissões <permissoes>`.
 
 (os-proprietarios)=
 
@@ -65,7 +65,7 @@ O diretórios são um caso especial. Para acessar o conteúdo de um diretório (
 - Um usuário com direitos de leitura e execução poderá listar o conteúdo de uma pasta e acessá-la com seu navegador de arquivos.
 ```
 
-```{question} Como são determinados os direitos de acesso em um volume?
+```{admonition} Como são determinados os direitos de acesso em um volume?
 
 - **Sistemas de arquivos compatíveis com o padrão POSIX:** Por padrão, um novo sistema de arquivos é atribuído automaticamente ao usuáriorooteaogrupo deusuáriosroote os direitos aplicados a ele são aqueles da máscara de usuário padrão (veja abaixo) . Para modificar os direitos de acesso associados a um sistema de arquivos, você deve modificar os direitos de acesso de seu ponto de montagem. Por exemplo, para alterar os direitos de acesso de um volume */dev/sdb1* montado na pasta `/media/NewPartition/` , você deve fazer as alterações de direitos na pasta `/media/NewPartition/`. como se fosse algum arquivo. As alterações nos direitos de acesso são mantidas mesmo após a desmontagem do sistema de arquivos. Isso se aplica apenas a ext2, ext3, ext4, ReiserFS, Reiser4, HFS, HFS + e outros sistemas de arquivos compatíveis com POSIX.
 
@@ -101,4 +101,4 @@ Esta última modificação diretamente no arquivo *.bashrc* do usuário está di
 
 ## Manipular direitos de acesso
 
-Os direitos de acesso especificados em um arquivo ou pasta podem ser substituídos por outros direitos de acesso. Todas as operações são discutidas no documento sobre {ref} `permissões <permissoes>`.
+Os direitos de acesso especificados em um arquivo ou pasta podem ser substituídos por outros direitos de acesso. Todas as operações são discutidas no documento sobre {ref}`permissões <permissoes>`.
