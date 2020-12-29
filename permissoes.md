@@ -28,13 +28,23 @@ Este documento descreve as várias operações que podem ser executadas em arqui
 
 ### Graficamente
 
-No Nautilus (Ubuntu), clique com o botão direito em um arquivo ou diretório e escolha as **propriedades** . Vá para a guia de **permissões**.
+No Nautilus (Ubuntu), clique com o botão direito em um arquivo ou diretório e escolha as **propriedades** . Vá para a guia de **permissões**. Na {numref}`fig-gui-perm-arq`, vemos as permissões do arquivo *letramento.ods*. Na {numref}`fig-gui-perm-dir`, vemos as permissões do diretório *Documentos*. 
 
-![Permissões para arquivos](perm-arq-2020-12-18-13-53-46.png)
+```{figure} imagens/perm-arq-2020-12-18-13-53-46.png
+:name: fig-gui-perm-arq
+:align: center
 
-![Permissões para diretórios](perm-dir-2020-12-18-13-54-32.png)
+Permissões para arquivos
+```
 
-Para o Proprietário, você pode escolher no menu suspenso correspondente conceder direitos de **leitura e escrita** ou **somente leitura** . Para **grupo** e **outros**, você pode escolher entre **leitura e escrita**, **somente leitura** e nenhum .
+```{figure} imagens/perm-dir-2020-12-18-13-54-32.png
+:name: fig-gui-perm-dir
+:align: center
+
+Permissões para diretórios
+```
+
+Para o Proprietário, você pode escolher no menu suspenso correspondente conceder direitos de **leitura e escrita** ou **somente leitura** . Para **grupo** e **outros**, você pode escolher entre **leitura e escrita**, **somente leitura** e **nenhum** .
 
 Você pode escolher o grupo ao qual o arquivo pertence (por padrão, o grupo do proprietário, exceto em casos especiais).
 
@@ -132,7 +142,7 @@ As informações abaixo são muito importantes para entender e controlar as perm
 
 ### Graficamente
 
-No Nautilus, você só precisa alterar os valores dos menus suspensos na guia de permissões (veja acima) ou não.
+No Nautilus, você só precisa alterar os valores dos menus suspensos na guia de permissões (veja acima, ou não).
 
 ### Na linha de comando
 
