@@ -63,9 +63,12 @@ html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
 numfig = True
+
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-numfig_format
 numfig_format = {
     'figure': 'Figura %s',
     'table': 'Tabela %s',
     'code-block': 'Bloco de código %s',
     'section': 'Seção %s',
 }
+

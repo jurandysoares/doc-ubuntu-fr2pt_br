@@ -1,13 +1,14 @@
 
 # Ubuntu-FR em Português
 
-
 ```{toctree}
+:caption: "Conteúdo:"
 :maxdepth: 1
-:caption: Conteúdo:
 
 caminhos
+fhs
+arvore-de-diretorios
 direitos
 permissoes
-
+ocultos
 ```

@@ -16,7 +16,7 @@ Os direitos de acesso definidos em arquivos e diretórios não são imutáveis: 
 
 ## Direitos de acesso: o que são?
 
-Os direitos de acesso definem a propriedade de um arquivo ou diretório para um usuário e um grupo de usuários. Eles também gerenciam quais ações os usuários têm permissão para executar nos arquivos (ler, gravar e executar), dependendo se eles são o proprietário do arquivo, membro do grupo proprietário do arquivo ou nenhum dos dois. A propriedade e o gerenciamento das permissões associadas são feitos individualmente com cada arquivo.
+Os direitos de acesso definem a propriedade de um arquivo ou diretório para um usuário e um grupo de usuários. Eles também gerenciam quais ações os usuários têm permissão para executar nos arquivos (ler, escrever e executar), dependendo se eles são o proprietário do arquivo, membro do grupo proprietário do arquivo ou nenhum dos dois. A propriedade e o gerenciamento das permissões associadas são feitos individualmente com cada arquivo.
 
 - Consulte o documento explicativo {ref}`direitos`.
 
@@ -26,6 +26,8 @@ Este documento descreve as várias operações que podem ser executadas em arqui
 
 ## Ver permissões
 
+(guia-depermissoes)=
+
 ### Graficamente
 
 No Nautilus (Ubuntu), clique com o botão direito em um arquivo ou diretório e escolha as **propriedades** . Vá para a guia de **permissões**. Na {numref}`fig-gui-perm-arq`, vemos as permissões do arquivo *letramento.ods*. Na {numref}`fig-gui-perm-dir`, vemos as permissões do diretório *Documentos*. 
@@ -34,19 +36,19 @@ No Nautilus (Ubuntu), clique com o botão direito em um arquivo ou diretório e 
 :name: fig-gui-perm-arq
 :align: center
 
-Permissões para arquivos
+-- Permissões para arquivos no Nautilus
 ```
 
 ```{figure} imagens/perm-dir-2020-12-18-13-54-32.png
 :name: fig-gui-perm-dir
 :align: center
 
-Permissões para diretórios
+-- Permissões para diretórios no Nautilus
 ```
 
 Para o Proprietário, você pode escolher no menu suspenso correspondente conceder direitos de **leitura e escrita** ou **somente leitura** . Para **grupo** e **outros**, você pode escolher entre **leitura e escrita**, **somente leitura** e **nenhum** .
 
-Você pode escolher o grupo ao qual o arquivo pertence (por padrão, o grupo do proprietário, exceto em casos especiais).
+Você pode escolher o grupo ao qual o arquivo pertence (por padrão, [o grupo primário](https://docs.oracle.com/cd/E19120-01/open.solaris/819-2379/userconcept-35906/index.html) , exceto em casos especiais).
 
 Ao lidar com um diretório, para o *Proprietário*, você pode escolher entre:
 
@@ -69,11 +71,23 @@ A próxima seção (na linha de comando) detalha as diferentes possibilidades de
 
 Os direitos dos arquivos em um diretório podem ser exibidos usando o comando:
 
-    ls -l
+- `ls -l`
 
 Os direitos de acesso aparecem então como uma lista de 10 símbolos:
 
-    drwxr-xr-x
+- `drwxr-xr-x`
+
+Estes símbolos devem ser interpretados conforme {numref}`tabela:ls-l`.
+
+```{table} -- Símbolos com tipo de arquivos e permissões agrupadas por categoria: proprietário (**Usuário**), membros do grupo proprietário (**Grupo**) e resto do mundo (**Outros**)
+:name: tabela:ls-l
+
+|  `1`  | `2   3  4` | `5  6  7` | `8 9 10` |
+| :---: | :--------: | :-------: | :------: |
+|  `d`  | `r   w  x` | `r  -  x` | `r - x`  |
+| Tipo  |  Usuário   |   Grupo   |  Outros  |
+
+```
 
 O primeiro símbolo pode ser `-`, `d` ou `l`, entre outros (todas as opções na [página de permissões Unix na wikipedia](https://en.wikipedia.org/wiki/File-system_permissions#Traditional_Unix_permissions)). Ele indica a natureza do arquivo:
 
@@ -85,7 +99,7 @@ O primeiro símbolo pode ser `-`, `d` ou `l`, entre outros (todas as opções na
 - `p` : *pipe* (FIFO) ou "tubo"
 - `s` : socket
 
-Em seguida, há 3 grupos com 3 símbolos cada, indicando se o arquivo (ou diretório) está autorizado para leitura, escrita ou execução. Os 3 grupos correspondem, nesta ordem, aos direitos do proprietário, do grupo e depois do resto dos usuários. No parágrafo introdutório, você deve ter notado letras em negrito nos termos em inglês. São essas letras que são usadas para simbolizar essas permissões. Se a permissão não for concedida, a letra em questão é substituída por `-`. Se relembrarmos as letras dadas para leitura/escrita/execução (<b>r</b>ead/<b>w</b>rite/e<b>x</b>ecute), obtemos: **rwx**.
+Em seguida, há 3 grupos com 3 símbolos cada, indicando se o arquivo (ou diretório) está autorizado para leitura, escrita ou execução (Em Inglês, <b>r</b>ead, <b>w</b>rite e e<b>x</b>ecute). Os 3 grupos correspondem, nesta ordem, aos direitos do proprietário, dos membros do grupo e depois do resto dos usuários. As letras `rwx` são usadas para simbolizar essas permissões. Se a permissão não for concedida, a letra em questão é substituída por `-`.
 
 ```{tip}
 Outro comando muito prático permite visualizar de uma só vez os direitos (e os proprietários) de todos os diretórios pais (veja {ref}`caminhos`) de um recurso específico:
@@ -108,7 +122,7 @@ A tradução é a seguinte:
 
 Na prática, executando o seguinte comando:
 
-    ls -l
+- `ls -l`
 
 obtemos a lista do conteúdo do diretório atual, por exemplo:
 
@@ -128,7 +142,7 @@ Encontramos na primeira coluna o grupo de 10 caracteres que permitem conhecer os
 
 Assim, para o arquivo `forum.xcf`, temos:
 
-    -rw-r--r--
+- `-rw-r--r--`
 
 - O primeiro caractere é `-` ⇒ é um arquivo.
 - O primeiro grupo de 3 caracteres é `rw-` ⇒ o proprietário tem permissão de leitura e escrita (mas não de execução) no arquivo.
@@ -142,7 +156,7 @@ As informações abaixo são muito importantes para entender e controlar as perm
 
 ### Graficamente
 
-No Nautilus, você só precisa alterar os valores dos menus suspensos na guia de permissões (veja acima, ou não).
+No Nautilus, você só precisa alterar os valores dos menus suspensos na {ref}`guia de permissões <guia-depermissoes>`.
 
 ### Na linha de comando
 
@@ -151,7 +165,7 @@ Um arquivo tem um **proprietário** e um **grupo**. Podemos mudá-los.
 #### chown, para mudar o dono
 O comando [`chown`](chown-help) (<b>ch</b>ange <b>own</b>er, mudar o proprietário) permite que você altere o proprietário do arquivo. Apenas o usuário *root* ou o proprietário atual de um arquivo podem usar `chown`. O comando é usado da seguinte maneira:
 
-    sudo chown toto arquivo1
+- `sudo chown toto arquivo1`
 
 O arquivo `arquivo1` agora pertence ao usuário toto.
 
@@ -159,7 +173,7 @@ O arquivo `arquivo1` agora pertence ao usuário toto.
 
 O comando `chgrp` (<b>ch</b>ange <b>gr</b>ou<b>p</b>, mudar o grupo) permite que você altere o grupo ao qual o arquivo pertence. Todos os membros deste grupo serão afetados pelas permissões do grupo da segunda série de **rwx**.. Novamente, apenas o usuário *root* ou o proprietário atual de um arquivo podem usar `chgrp` (Um membro do grupo não pode alterar o grupo do proprietário). O comando é usado da seguinte maneira:
 
-    sudo chgrp meusAmigos arquivo2
+- `sudo chgrp meusAmigos arquivo2`
 
 O arquivo `arquivo2` agora pertence ao grupo *meusAmigos*. Todos os membros do grupo *meusAmigos* terão acesso a este arquivo de acordo com as permissões do grupo. Quando o usuário atual não for o dono atual do arquivo, será necessário preceder o comando com `sudo`, uma vez que deve ser realizado com direitos administrativos.
 
@@ -167,13 +181,13 @@ O arquivo `arquivo2` agora pertence ao grupo *meusAmigos*. Todos os membros do g
 
 Para alterar o proprietário e o grupo proprietário, uma sintaxe de comando especial `chown` pode ser usada. Novamente, apenas o usuário *root* ou o proprietário atual de um arquivo podem usar `chown` (um membro do grupo não pode alterar a propriedade). O comando é usado da seguinte maneira:
 
-    chown novo_proprietário:novo_grupo_proprietário nome_do_arquivo
+- `chown novo_proprietário:novo_grupo_proprietário nome_do_arquivo`
 
 Quando o usuário atual não for o dono atual do arquivo, será necessário preceder o comando com `sudo`, uma vez que deve ser realizado com direitos administrativos.
 
 Imagine o mesmo arquivo `foo.txt` pertencente ao *usuário1* e pertencente ao grupo proprietário  grupo *grupo1* . O proprietário deve se tornar o *usuário2* e o grupo proprietário deste arquivo deve ir para o grupo *grupo2*. Ao ser conectado à conta administrativa *usuário1*, a execução deste comando executará a operação solicitada:
 
-    sudo chown usuário2:grupo2 foo.txt
+- `sudo chown usuário2:grupo2 foo.txt`
 
 ####  chmod, para mudar os direitos
 
@@ -205,11 +219,11 @@ Desta forma, iremos escolher:
 
 Por exemplo:
 
-    chmod o-w arquivo3
+- `chmod o-w arquivo3`
 
 irá remover os direitos de escrita de outros.
 
-    chmod a+x arquivo4
+- `chmod a+x arquivo4`
 
 adicionará o direito de execução para as três categorias.
 
@@ -219,7 +233,7 @@ Podemos também pode combinar várias ações ao mesmo tempo:
 - Adicionar permissão de leitura e execução ao grupo proprietário, remover permissão de escrita;
 - Adicionamos permissão de leitura a outras pessoas, removemos a permissão de escrita e execução.
 
-    chmod u+rwx,g+rx-w,o+r-wx arquivo3
+- `chmod u+rwx,g+rx-w,o+r-wx arquivo3`
 
 etc.
 
@@ -255,7 +269,7 @@ Isso permite que você faça todas as combinações:
 
 Vamos voltar ao diretório `Documents`. Suas permissões são:
 
-    drwxr-x ---
+- `drwxr-x ---`
 
 Em octal, teremos **750**:
 
@@ -267,7 +281,7 @@ Em octal, teremos **750**:
 
 Para colocar essas permissões no diretório, digitaríamos o comando:
 
-    chmod 750 Documents
+- `chmod 750 Documents`
 
 #### Recursivamente
 
@@ -279,7 +293,7 @@ Um uso indevido do `chmod -R` pode tornar seu sistema inutilizável. Evite execu
 
 Por exemplo:
 
-    chmod -R 750 meuDiretório
+- `chmod -R 750 meuDiretório`
 
 dará todos os direitos ao proprietário, direitos de leitura e execução para o grupo e nenhum direito para terceiros ...
 
@@ -316,10 +330,10 @@ Se executarmos `chmod -R u-x+X,g-x+X meudir`, ele não terá efeito porque `X` d
 
 Portanto, devemos primeiro remover todos os `x`: `u-x,gx` antes de colocá-los de volta (será feito apenas para os diretórios desta vez), o que finalmente dá:
 
-    chmod -R u-x,g-x,u+X,g+X meudir
+- `chmod -R u-x,g-x,u+X,g+X meudir`
 
 ```{tip}
-Deve-se notar que apenas o dono do arquivo, bem como o superusuário, têm a possibilidade de modificar as permissões em um arquivo. (Um membro do grupo proprietário não pode alterar as permissões em um arquivo.) Quando o usuário atual não é o proprietário atual do arquivo, será necessário preceder o comando com sudo, uma vez que terá que ser feito com o direitos de administração.
+Deve-se notar que apenas o dono do arquivo, bem como o superusuário, têm a possibilidade de modificar as permissões em um arquivo. (Um membro do grupo proprietário não pode alterar as permissões em um arquivo.) Quando o usuário atual não é o proprietário atual do arquivo, será necessário preceder o comando com [sudo](https://pt.wikipedia.org/wiki/Sudo), uma vez que terá que ser feito com o direitos de administração.
 ```
 
 ```{tip}
@@ -352,20 +366,16 @@ Você deve ver na lista de nomes de arquivo em um fundo vermelho ou amarelo e di
 Segue listagem dos comandos anteriores com sua respectiva saída:
 
 - `ls -l $(which passwd)`
-
-    -rwsr-xr-x 1 root root 68208 mai 28  2020 /usr/bin/passwd
+    - Saída: `-rwsr-xr-x 1 root root 68208 mai 28  2020 /usr/bin/passwd`
 
 - `ls -l $(which sudo)`
-  
-    -rwsr-xr-x 1 root root 166056 jul 14 21:17 /usr/bin/sudo
+  - Saída: `-rwsr-xr-x 1 root root 166056 jul 14 21:17 /usr/bin/sudo`
 
 - `ls -l $(which ssh-agent)`
-
-    -rwxr-sr-x 1 root ssh 350504 mai 29  2020 /usr/bin/ssh-agent
+  - Saída: `-rwxr-sr-x 1 root ssh 350504 mai 29  2020 /usr/bin/ssh-agent`
 
 - `ls -ld /tmp`
-
-    drwxrwxrwt 28 root root 20480 dez 25 06:03 /tmp
+  - Saída: `drwxrwxrwt 28 root root 20480 dez 25 06:03 /tmp`
 
 Podemos interpretar a saída conforme a tabela abaixo:
 
@@ -381,7 +391,6 @@ O bit *Set-User-ID* permite que um usuário execute o programa com direitos de p
 
 A restrição de exclusão ou *Sticky bit* permite, por sua vez, restringir a exclusão de um arquivo ou diretório ao seu único proprietário. Este é o caso do diretório `/tmp`. O `t` em vez dos `x` para outros usuários nos informa que este diretório somente pode ser excluído pelo usuário *root*. Como para as outras permissões, você pode acumular as ativações, adicionando o código para cada um, assim, para ativar o *sticky bit* e o *GroupID* em seu script `renomeia-minhas-fotos.sh`, você executaria:
 
-    chmod 3777 renomeia-minhas-fotos.sh
-
+- `chmod 3777 renomeia-minhas-fotos.sh`
 
 

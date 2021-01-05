@@ -1,0 +1,9 @@
+digraph dirtree {
+  node
+  "/" -> "home";
+  "home" -> "martins";
+  "martins" -> "Documents";
+  "Documents" -> "dynotes-francais";
+  "dynotes-francais" -> "docs";
+  "docs" -> "index.md";    
+}
