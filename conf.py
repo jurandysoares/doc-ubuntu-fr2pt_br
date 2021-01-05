@@ -63,3 +63,9 @@ html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
 numfig = True
+numfig_format = {
+    'figure': 'Figura %s',
+    'table': 'Tabela %s',
+    'code-block': 'Bloco de código %s',
+    'section': 'Seção %s',
+}
