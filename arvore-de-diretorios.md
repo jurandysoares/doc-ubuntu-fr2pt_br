@@ -21,9 +21,23 @@ Facilita a localização de diretórios e arquivos para usuários e desenvolvedo
 -- Árvore de diretórios no Nautilus
 ```
 
-Compare o armazenamento de diretórios e arquivos em seu computador com uma árvore (Veja {numref}`figura:diretorios`): começando pela raiz de uma árvore, movendo seu dedo ao longo da árvore, seguindo o tronco e depois os galhos, você pode tocar em qualquer lugar. que folha desta árvore.
+Compare o armazenamento de diretórios e arquivos em seu computador com uma árvore (Veja {numref}`figura:diretorios`): começando pela raiz de uma árvore, movendo seu dedo ao longo da árvore, seguindo o tronco e depois os galhos, você pode tocar em qualquer folha desta árvore.
 
-Em sistemas do tipo {abbr}`GNU (GNU Não é Unix)`/Linux, todas as informações armazenadas em sua mídia de armazenamento (discos rígidos, pendrives , cartões SD, CD-ROMs, etc.) são necessariamente acessíveis seguindo um caminho a partir de um local lógico chamado a raiz (indicada por uma barra simples: '/').
+```{figure} imagens/arv-dir-bottomtop.png
+:name: figura:arvore-bt
+:align: center
+-- Árvore de diretórios com raiz (`/`) embaixo
+```
+
+Uma árvore na natureza possui sua raiz na parte de baixo. Poderíamos representar a árvore de diretórios do Linux conforme representado na {numref}`figura:arvore-bt`. No entanto, isso não seria intuitivo, pois a árvore de diretórios representa uma hierarquia de diretórios (pastas) com etiquetas (nomes) e, nós ocidentais, lemos da esquerda para a direita. Por esta razão, a árvore de diretórios é comumente representada como na {numref}`figura:arvore-lr`.
+
+```{figure} imagens/arv-dir-leftright.png
+:name: figura:arvore-lr
+:align: center
+-- Árvore de diretórios com raiz (`/`) à esquerda
+```
+
+Em sistemas do tipo {abbr}`GNU (GNU Não é Unix)`/Linux, todas as informações armazenadas em sua mídia de armazenamento (discos rígidos, pendrives , cartões SD, CD-ROMs, etc.) são necessariamente acessíveis seguindo um caminho a partir de um local lógico chamado a raiz (indicada por uma barra simples: `/`).
 
 A raiz simboliza uma partição que você define como base para armazenar seus arquivos. Em seguida, essa base é separada (como ramos de uma árvore) logicamente em diretórios (pastas), eles próprios separados em subdiretórios e subdiretórios, etc. em que seus arquivos são salvos (simbolicamente, as folhas da árvore).
 

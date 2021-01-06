@@ -1,6 +1,6 @@
 digraph dirtree {
   node [shape="folder"];
-  rankdir = "BT";
+  rankdir = "LR";
   "index.md" [shape="rectangle", label="index.md"];
 
   "/" -> "etc";
