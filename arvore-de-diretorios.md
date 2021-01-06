@@ -45,7 +45,7 @@ A raiz simboliza uma partição que você define como base para armazenar seus a
 
 | Descrição                                             | Caminho                                            |
 | ----------------------------------------------------- | -------------------------------------------------- |
-| Pasta raiz                                            | '/'                                                |
+| Pasta raiz                                            | `/`                                                |
 | Pasta de dispositivos de armazenamento USB removíveis | `/media/USUARIO/ETIQUETA`                          |
 | Pasta base do usuário                                 | `/home/USUARIO` ou `~`                             |
 | Dados de seus aplicativos                             | `/home/USUARIO/.local/share/` ou `~/.local/share/` |
