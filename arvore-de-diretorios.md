@@ -1,6 +1,6 @@
 (arvore-de-diretorios)=
 
-# Árvore de diretório do Ubuntu
+# Árvore de diretórios do Ubuntu
 
 - Traduzido de: <http://doc.ubuntu-fr.org/arborescence>
 - Tradutor: Jurandy Soares
