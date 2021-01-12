@@ -29,7 +29,7 @@ Compare o armazenamento de diretórios e arquivos em seu computador com uma árv
 -- Árvore de diretórios com raiz (`/`) embaixo
 ```
 
-Uma árvore na natureza possui sua raiz na parte de baixo. Poderíamos representar a árvore de diretórios do Linux conforme representado na {numref}`figura:arvore-bt`. No entanto, isso não seria intuitivo, pois a árvore de diretórios representa uma hierarquia de diretórios (pastas) com etiquetas (nomes) e, nós ocidentais, lemos da esquerda para a direita. Por esta razão, a árvore de diretórios é comumente representada como na {numref}`figura:arvore-lr`.
+Uma árvore na natureza possui sua raiz na parte de baixo. Poderíamos representar a árvore de diretórios do Linux conforme representado na {numref}`figura:arvore-bt`. No entanto, isso não seria intuitivo, pois a árvore de diretórios representa uma hierarquia de diretórios (pastas) com etiquetas (nomes) e, nós ocidentais, lemos da esquerda para a direita. Por esta razão, a árvore de diretórios é comumente representada com a raiz à esquerda, semelhante ao observado na {numref}`figura:arvore-lr`.
 
 ```{figure} imagens/arv-dir-leftright.png
 :name: figura:arvore-lr
