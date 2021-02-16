@@ -55,3 +55,9 @@ ferramenta para visualização do arquivo escolhido:
 - `batcat ARQUIVO` (Pressione `q` para sair)
 - `code ARQUIVO`  (Somente se você estiver no ambiente Desktop)
 - `gedit ARQUIVO`  (Somente se você estiver no ambiente Desktop)
+
+
+## Referências
+
+- [ubuntu - friendly-recovery is broken, keeps returning exit status 1 - Super User](https://superuser.com/questions/1356284/friendly-recovery-is-broken-keeps-returning-exit-status-1)
+- [6. Package maintainer scripts and installation procedure — Debian Policy Manual v4.5.1.0](https://www.debian.org/doc/debian-policy/ch-maintainerscripts.html)
