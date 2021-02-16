@@ -40,4 +40,18 @@ Nas distribuições Debian e derivados, o diretório `/var/lib/dpkg/info/` armaz
   - Pós-instalação (Execute: `ls *.postinst`)
   - Pré-remoção (Execute: `ls *.prerm`)
   - Pós-remoção (Execute: `ls *.postrm`)
-  
+
+Vejamos o exemplo do pacote que instalou o agendador de tarefas **cron**:
+
+  cd /var/lib/dpkg/info
+  ls cron.*
+
+Escolha um dos arquivos que você deseja visualizar e use um comando ou 
+ferramenta para visualização do arquivo escolhido: 
+- `cat -n ARQUIVO`
+- `less ARQUIVO` (Pressione `q` para sair)
+- `nano -v ARQUIVO` (Pressione {kbd}`Ctrl+X` para sair)
+- `view ARQUIVO` (Pressione {kbd}`Esc:`, depois digite `q!`, e pressione {kbd}`Enter` para sair)
+- `batcat ARQUIVO` (Pressione `q` para sair)
+- `code ARQUIVO`  (Somente se você estiver no ambiente Desktop)
+- `gedit ARQUIVO`  (Somente se você estiver no ambiente Desktop)
