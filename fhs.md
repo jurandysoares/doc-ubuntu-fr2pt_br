@@ -96,22 +96,22 @@ Sua arquitetura é semelhante à de /
 
 Pasta com conteúdos de dados variáveis ​​do sistema, indicando seu status. Dividido em subpastas.
 
-##### /var/lock
+#### /var/lock
 
 Conteúdo variável ​​de bloqueio.  \
 Permite saber o estado de uso do programa ou [daemon](https://pt.wikipedia.org/wiki/Daemon_(computa%C3%A7%C3%A3o)) que não deve ser executado duas vezes ao mesmo tempo (gparted, updates, etc.).
 
 
-##### /var/log
+#### /var/log
 
 Diretório onde costumam ficar salvos [Arquivos de log](https://debian-handbook.info/browse/pt-BR/stable/sect.syslog.html) com [log de dados](https://pt.wikipedia.org/wiki/Log_de_dados).
 
 
-##### /var/mail
+#### /var/mail
 
 Caixas de correio do usuário.
 
-##### /var/run
+#### /var/run
 
 Dados variáveis ​​temporários de programas em execução. É um link simbólico para o diretório `/run`. Exemplo de conteúdo deste diretório em uma estação com [Ubuntu Desktop](https://ubuntu.com/download/desktop) 20.04.1 LTS (Saída do comando: `ls -F /var/run/`): 
 
@@ -135,17 +135,17 @@ gdm3.pid          sendsigs.omit.d/    wpa_supplicant/
 initctl|          shm@                xtables.lock
 ```
 
-##### /var/spool
+#### /var/spool
 
 Fila para serviços, especialmente para impressoras, mensagens de e-mail ou tarefas agendadas.
 
 
-##### /var/tmp
+#### /var/tmp
 
 Arquivos temporários, eles não são excluídos a cada início.
 
 
-##### /var/www
+#### /var/www
 
 Diretório padrão dos servidores web [Apache](http://httpd.apache.org/) ou [Nginx](http://nginx.org/).
 
@@ -155,27 +155,27 @@ Diretório padrão dos servidores web [Apache](http://httpd.apache.org/) ou [Ngi
 É aconselhável particionar seu sistema, ou seja, criar diferentes partições para separar as partes "independentes". Assim, em caso de reinstalação do sistema, algumas peças personalizadas já estarão no local sem a necessidade de restaurá-las.
 
 
-#### /home
+### /home
 
 Provavelmente o diretório mais importante para separar! Portanto, em caso de destruição de seu sistema ou reinstalação, seus dados pessoais e configurações permanecerão no local. É aconselhável tornar essa partição o maior possível.
 
-#### /opt
+### /opt
 
 Também é muito importante no caso de você instalar muitos softwares manualmente (por exemplo, jogos).
 Eu pessoalmente recomendo um tamanho base de 20 GiB, para se adaptar de acordo com suas necessidades.
 
 
-#### /boot
+### /boot
 
 Permite separar os arquivos de inicialização.
 Um tamanho de 300 MiB será mais do que suficiente.
 
-#### /tmp
+### /tmp
 
 Permite separar os arquivos temporários que serão apagados a cada inicialização do sistema. Uma partição separada só deve ser criada de acordo com a aplicação que será feita do servidor.
 
 
-#### /
+### /
 
 Por implicação "o resto dos diretórios", um tamanho de 10 GiB a 20 GiB será suficiente.
 

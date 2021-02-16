@@ -10,7 +10,7 @@ Na computação, o conteúdo geralmente é armazenado em arquivos.
 
 Como esses são rapidamente muito numerosos, para se orientar, projetamos os sistemas de arquivos como estruturas em árvore: os arquivos são armazenados em diretórios e, além dos arquivos, cada um desses diretórios pode conter vários outros diretórios.
 
-A referência a um recurso (arquivo ou diretório) é chamada de caminho de acesso (em inglês: *path*). Nesse caminho, no Linux, os nomes dos diretórios e de qualquer arquivo são separados por uma barra `/` (enquanto uma barra invertida `\` é usada no Windows).
+A referência a um recurso (arquivo ou diretório) é chamada de caminho de acesso (em inglês: *path*). Nesse caminho, no Linux, os nomes dos diretórios e de qualquer arquivo são separados por uma barra `/` (enquanto uma [barra invertida](https://pt.wikipedia.org/wiki/Barra_inversa) `\` é usada no Windows).
 
 Existem dois tipos de caminho: absoluto e relativo .
 

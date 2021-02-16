@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Ubuntu FR2PT'
-copyright = '2020, Jurandy Soars'
+copyright = '2020, Jurandy Soares'
 author = 'Jurandy Soares'
 
 # The full version, including alpha/beta/rc tags

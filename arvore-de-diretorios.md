@@ -29,7 +29,7 @@ Compare o armazenamento de diretórios e arquivos em seu computador com uma árv
 -- Árvore de diretórios com raiz (`/`) embaixo
 ```
 
-Uma árvore na natureza possui sua raiz na parte de baixo. Poderíamos representar a árvore de diretórios do Linux conforme representado na {numref}`figura:arvore-bt`. No entanto, isso não seria intuitivo, pois a árvore de diretórios representa uma hierarquia de diretórios (pastas) com etiquetas (nomes) e, nós ocidentais, lemos da esquerda para a direita. Por esta razão, a árvore de diretórios é comumente representada com a raiz à esquerda, semelhante ao observado na {numref}`figura:arvore-lr`.
+Uma árvore na natureza possui sua raiz na parte de baixo. Poderíamos representar a árvore de diretórios do Linux conforme representado na {numref}`figura:arvore-bt`. No entanto, isso não seria intuitivo, pois a árvore de diretórios representa uma hierarquia de diretórios (pastas) com etiquetas (nomes) e nós ocidentais lemos da esquerda para a direita. Por esta razão, a árvore de diretórios é comumente representada com a raiz à esquerda, semelhante ao observado na {numref}`figura:arvore-lr`.
 
 ```{figure} imagens/arv-dir-leftright.png
 :name: figura:arvore-lr
@@ -52,35 +52,33 @@ A raiz simboliza uma partição que você define como base para armazenar seus a
 
 ## O padrão de acordo com o FHS
 
-O *Filesystem Hierarchy Standard* define uma organização padrão para esses diretórios. Portanto, não importa qual distribuição GNU / Linux (ou qualquer outro sistema operacional aderente a esse padrão) você esteja usando, você será capaz de encontrar as informações que procura.
+O *Filesystem Hierarchy Standard* define uma organização padrão para esses diretórios. Portanto, não importa qual distribuição GNU/Linux (ou qualquer outro sistema operacional aderente a esse padrão) você esteja usando, você será capaz de encontrar as informações que procura.
 
-```{table} -- FHS: Hierarquia Padrão do Sistema de Arquivos
-:name: tabela:fhs
+```{toctree}
+:maxdepth: 1
 
-| Diretório  | Português                           | Inglês                                                                                            | Conteúdo                             |
-| ---------- | ----------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------ |
-| /          |                                     |                                                                                                   | Raiz do sistema, hierarquia primária |
-| /bin       | binários, utilitários binários      | <b>bin</b>aries, <b>bin</b>ary utilities (<b>bin</b>utils)                                        | Comandos executáveis essenciais disponíveis para todos os usuários (por exemplo `cat`, `ls`, `cp`...)                                     |
-| /boot      | inicialização                       | <b>boot</b>strap                                                                                  | Arquivos estáticos de inicialização do sistema (kernels, imagens de ramdisk, arquivos de configuração do bootloader, etc.)                                     |
-| /dev       | periférico                          | <b>dev</b>ice                                                                                     | Arquivos especiais de periféricos                                     |
-| /etc       | configuração editável em modo texto | <b>e</b>diting <b>t</b>ext <b>c</b>onfig                                                          | Arquivos de configuração no formato textual de vários programas e serviços do sistema                                     |
-| /home      | casa                                | <b>home</b> directory                                                                             |   Pasta pessoal dos usuários                                   |
-| /lib       | bibliotecas                         | <b>lib</b>rairies                                                                                 |  Bibliotecas compartilhadas essenciais e módulos do Kernel                                    |
-| /media     |                                     |                                                                                                   | Contém os pontos de montagem das mídias removíveis                                     |
-| /mnt       | montagem                            | <b>m</b>ou<b>nt</b>                                                                               | Ponto de montagem para montar temporariamente um sistema de arquivos                                     |
-| /opt       | opcional                            | <b>opt</b>ional                                                                                   | Localização de aplicativos instalados fora gerenciador de {ref}`pacotes <pacote>` (programas opcionais)                                     |
-| /proc      | processo                            | <b>proc</b>esses                                                                                  | Diretório virtual para informações do sistema (kernel e estados de processo do sistema)                                     |
-| /root      | raiz                                | <b>root</b>                                                                                       | Diretório pessoal [superusuário]()                                     |
-| /run       | execução do sistema                 | <b>run</b>time system                                                                             | Informações sobre o sistema desde sua última inicialização (ex: usuários ativos, serviços em execução, etc.)                                     |
-| /sbin      | binários do sistema                 | <b>s</b>uper <b>bin</b>aries, <b>s</b>uper <b>bin</b>ary utilities (<b>s</b>uper <b>bin</b>utils) | Executáveis ​​críticos do sistema                                     |
-| /srv       | serviços                            | <b>s</b>e<b>rv</b>ices                                                                            | Dados para serviços do sistema                                     |
-| /tmp       | temporário                          | <b>t</b>e<b>mp</b>orary                                                                           | Arquivos temporários de aplicativo                                      |
-| /usr       | Recursos do sistema Unix            | <b>U</b>nix <b>s</b>ystem <b>r</b>esources                                                        | Hierarquia secundária, para dados somente leitura pelos usuários. Este diretório contém a grande maioria dos aplicativos comuns de usuário e seus arquivos.                                     | 
-| /usr/bin   |                                     |                                                                                                   | Executáveis ​​de programas adicionais disponíveis para todos os usuários (ex: gerenciador de arquivos, reprodutor de música, navegador da web, etc.)                                     |
-| /usr/lib   |                                     |                                                                                                   | Bibliotecas compartilhadas por aplicativos adicionais de `/usr/bin` e `/usr/sbin`                                     |
-| /usr/local |                                     |                                                                                                   | Hierarquia terciária. Local onde os usuários devem instalar os aplicativos que compilam.                                     |
-| /usr/share |                                     |                                                                                                   | Arquivos não relacionados à arquitetura compartilhada pelos aplicativos de `/usr/bin` e `/usr/sbin` (Ex.: ícones, temas, documentação ...)                                     |
-| /var       | variável                            | <b>var</b>iable                                                                                   | Dados variáveis ​​e diversos                                     |
+fhs/01-barra.md
+fhs/02-barra_bin.md
+fhs/03-barra_boot.md
+fhs/04-barra_dev.md
+fhs/05-barra_etc.md
+fhs/06-barra_home.md
+fhs/07-barra_lib.md
+fhs/08-barra_media.md
+fhs/09-barra_mnt.md
+fhs/10-barra_opt.md
+fhs/11-barra_proc.md
+fhs/12-barra_root.md
+fhs/13-barra_run.md
+fhs/14-barra_sbin.md
+fhs/15-barra_srv.md
+fhs/16-barra_tmp.md
+fhs/17-barra_usr.md
+fhs/18-barra_usr_bin.md
+fhs/19-barra_usr_lib.md
+fhs/20-barra_usr_local.md
+fhs/21-barra_usr_share.md
+fhs/22-barra_var.md
 ```
 
 ### Considerações avançadas
