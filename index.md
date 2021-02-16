@@ -11,4 +11,5 @@ arvore-de-diretorios
 direitos
 permissoes
 ocultos
+pacote
 ```
