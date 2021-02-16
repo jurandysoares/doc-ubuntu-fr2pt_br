@@ -10,7 +10,7 @@
 
 Um pacote de software refere-se ao software contido em um arquivo que, manipulado por um sistema de gerenciamento de pacote de software, instala ou remove o software em questão de um computador.
 
-Mais precisamente, um pacote contém os arquivos, no todo ou em parte, de um software ou de uma biblioteca de componentes dentro do mesmo arquivo compactado. Este arquivo também contém scripts de instalação, instruções que são compreendidas por um sistema de gerenciamento de pacotes e que permitem colocar o software ou arquivos de biblioteca no local apropriado na árvore do sistema de arquivos. Esses mesmos scripts de instalação podem ser lidos ao contrário pelo sistema de gerenciamento de pacotes para remover completamente o software instalado.
+Mais precisamente, um pacote contém os arquivos, no todo ou em parte, de um software ou de uma biblioteca de componentes dentro do mesmo arquivo compactado. Este arquivo também [contém scripts de instalação](https://pc.oulu.ifrn.edu.br/var/lib/dpkg/info/), instruções que são compreendidas por um sistema de gerenciamento de pacotes e que permitem colocar o software ou arquivos de biblioteca no local apropriado na árvore do sistema de arquivos. Esses mesmos scripts de instalação podem ser lidos ao contrário pelo sistema de gerenciamento de pacotes para remover completamente o software instalado.
 
 Um pacote, sozinho, está incompleto. Deve ser manuseado por um gerenciador de pacotes , o sistema possibilitando processar (instalar, atualizar, validar e deletar) pacotes de software.
 
@@ -27,3 +27,17 @@ Os pacotes de software compatíveis com o sistema operacional Ubuntu são aquele
 
 Os pacotes [flatpak](https://flatpak.org/) e [snap](https://snapcraft.io/) também podem ser usados ​​em um sistema Ubuntu, embora suas operações sejam diferentes.
 
+## Scripts para os pacotes
+
+Nas distribuições Debian e derivados, o diretório `/var/lib/dpkg/info/` armazena vários arquivos com dados sobre os pacotes instalados em seu sistema. Visite-o (Execute: `cd /var/lib/dpkg/info/`)  para ver:
+- Lista de arquivos de configuração (Execute: `ls *.conffiles`)
+- Lista dos arquivos implantados (Execute: `ls *.list`)
+- Gatilhos (Execute: `ls *.triggers`)
+- Soma de verificação (*checksum* em inglês) para alguns arquivos (Execute: `ls *.md5sums`)
+- Scripts de:
+  - Configuração (Execute: `ls *.config`)
+  - Pré-instalação (Execute: `ls *.preinst`)
+  - Pós-instalação (Execute: `ls *.postinst`)
+  - Pré-remoção (Execute: `ls *.prerm`)
+  - Pós-remoção (Execute: `ls *.postrm`)
+  
