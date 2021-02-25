@@ -6,7 +6,7 @@ Raiz da árvore de diretórios
 
 ## Inglês
 
-*Root filesystem* ou *rootfs*. Não se confundir com o diretório `/root`, que é a pasta base do usuário *root.
+*Root filesystem* ou *rootfs*. Não se confundir com o diretório `/root`, que é a pasta base do usuário *root*.
 
 ## Conteúdo
 
