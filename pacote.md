@@ -43,8 +43,8 @@ Nas distribuições Debian e derivados, o diretório `/var/lib/dpkg/info/` armaz
 
 Vejamos o exemplo do pacote que instalou o agendador de tarefas **cron**:
 
-  cd /var/lib/dpkg/info
-  ls cron.*
+    cd /var/lib/dpkg/info
+    ls cron.*
 
 Escolha um dos arquivos que você deseja visualizar e use um comando ou 
 ferramenta para visualização do arquivo escolhido: 
